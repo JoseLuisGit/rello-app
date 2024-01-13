@@ -1,0 +1,22 @@
+version: "3"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: rello-backend:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: rello-frontend:latest
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    volumes:
+      - ./frontend/docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - backend

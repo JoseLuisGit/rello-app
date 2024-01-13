@@ -1,0 +1,16 @@
+.vscode/
+.coverage/
+.git/
+.husky/
+.gitignore
+.editorconfig
+.pre-commit-config.yaml
+.devcontainer
+tests/
+docker-compose.yml
+bitbucket-pipelines.yml
+.eslintrc.cjs
+.devcontainer/
+k8s/
+dist/
+node_modules/

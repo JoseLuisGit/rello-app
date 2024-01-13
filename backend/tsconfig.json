@@ -1,0 +1,37 @@
+{
+    "compilerOptions": {
+      "target": "ES2022",
+      "lib": ["es2021"],
+      "module": "CommonJS",
+      "moduleResolution": "Node",
+      "baseUrl": "./",
+      "paths": {
+        "@app/*": ["./src/*"],
+        "@tests/*": ["./tests/*"]
+      },
+      "typeRoots": ["./node_modules/@types/", "./node_modules/@types/yargs"],
+      "outDir": "./dist",
+      "resolveJsonModule": true,
+      "allowJs": true,
+      "declaration": true,
+      "sourceMap": true,
+      "isolatedModules": true,
+      "allowSyntheticDefaultImports": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "strict": true,
+      "noImplicitAny": true,
+      "strictNullChecks": true,
+      "strictFunctionTypes": true,
+      "strictPropertyInitialization": true,
+      "noImplicitThis": true,
+      "alwaysStrict": true,
+      "noUnusedLocals": true,
+      "noImplicitReturns": true,
+      "noFallthroughCasesInSwitch": true,
+      "skipLibCheck": true
+    },
+    "include": ["src/**/*.ts", "tests/**/*.ts"],
+    "exclude": ["node_modules", "dist"]
+  }
+  
