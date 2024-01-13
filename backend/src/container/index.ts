@@ -1,8 +1,12 @@
 import { InjectionMode, createContainer } from "awilix";
 import registerEnvironment, { IEnvCradle } from "./environment";
 import registerRestAPI, { IRestAPICradle } from "./restApi";
+import registerDatabase, { IDatabaseCradle } from "./database";
 
-export interface ContainerCradle extends IEnvCradle, IRestAPICradle {}
+export interface ContainerCradle
+  extends IEnvCradle,
+    IRestAPICradle,
+    IDatabaseCradle {}
 
 const configureContainer = () => {
   const container = createContainer<ContainerCradle>({
@@ -10,6 +14,8 @@ const configureContainer = () => {
   });
   registerEnvironment(container);
   registerRestAPI(container);
+  registerDatabase(container);
+
   return container;
 };
 

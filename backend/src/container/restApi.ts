@@ -5,7 +5,6 @@ import {
   requestError,
   requestLogger,
 } from "@app/restapi/globalMiddleware/requestLogger";
-import context from "@app/logger/context";
 
 export interface IRestAPICradle {
   router: Router;
@@ -14,13 +13,16 @@ export interface IRestAPICradle {
 
 function registerRestAPI(container: AwilixContainer<IRestAPICradle>) {
   container.register({
-    router: asFunction(() => {
+    router: asFunction(({ userStore }) => {
       const router = Router();
       router.use(express.json());
       router.get("/", (_, res) => {
-        context.set("case_id", "213");
         res.json({ message: "Hello World" });
       });
+      router.get("/users", async (_, res) => {
+        const users = await userStore.getAll();
+        res.json(users);
+      }); 
       return router;
     }),
     express: asFunction(({ router }) => {
