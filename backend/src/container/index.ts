@@ -13,8 +13,8 @@ const configureContainer = () => {
     injectionMode: InjectionMode.PROXY,
   });
   registerEnvironment(container);
-  registerRestAPI(container);
   registerDatabase(container);
+  registerRestAPI(container);
 
   return container;
 };
